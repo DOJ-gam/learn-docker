@@ -109,3 +109,36 @@
 - In order to access the comand prompt of a container, you need run: _docker exec -it <id-of-container> sh_
   - _sh_ there means _shell_=> it is a program in the container that we can execute, some containers will also have another command processor as a program like the bash command prompt installed, if so, you can also access the bash command directly.
 - We can also start a container and change the default command to show the shell at first run: _docker run -it busybox sh_
+
+# Creating Docker Images
+
+- To create a docker image, we need to:
+  - create a _Dockerfile_ => contains configurations that define how our container should behave.
+    - inside of every docker file we have to specify the _base image_
+    - add additional configuration to _run some commands to install additional programs_
+    - specify a command to run on container startup
+  - Then we pass it on to the _docker client(cli)_
+  - The docker client will then pass it to the docker server
+  - The docker server does the work :
+    - it takes the docker file,
+    - Look at all the lines of configurations that we have inside of it,
+    - and then build a usable image that can then be used to startup a new container
+-
+
+```dockerfile
+# Use an existing docker image as a base
+FROM ubuntu
+
+
+# Download and install dependencies
+RUN apt-get update && apt-get install -y redis
+
+
+# Tell image what to do when it starts as a container
+CMD ["redis-server"]
+
+```
+
+- From the ablove code, we can say that the _FTOM, RUN and CMD_ are instructions and their corresponding commands are called _instructions_
+- To run it we navigate to the directory where we have the _Dockerfile_ and run _docker build ._
+- After successful build of file, we can use _docker run <id-of-container>_
