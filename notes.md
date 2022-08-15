@@ -140,5 +140,11 @@ CMD ["redis-server"]
 ```
 
 - From the ablove code, we can say that the _FTOM, RUN and CMD_ are instructions and their corresponding commands are called _instructions_
-- To run it we navigate to the directory where we have the _Dockerfile_ and run _docker build ._
+- To run it we navigate to the directory where we have the _Dockerfile_ and run _docker build ._=> build command is what will take a docker file and generate an image out of it. The _dot_=> is refered to as the _build context_=> it is the set of files and folders that belongs to our project.., files and folders we want to wrap in our container.
 - After successful build of file, we can use _docker run <id-of-container>_
+
+# Tagging an Image / Making it easier to run
+
+- _docker build -t your-docker-id/repoOrProject-name:version(tag) ._
+  - eg: _docker build -t dojgambia/redis:latest ._
+- To run we can just say: _docker run dojgambia/redis_
