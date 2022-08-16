@@ -4,7 +4,7 @@
   "description": "Node Js Web App to test docker",
   "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "keywords": [
     "Docker",

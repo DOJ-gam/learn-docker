@@ -143,8 +143,22 @@ CMD ["redis-server"]
 - To run it we navigate to the directory where we have the _Dockerfile_ and run _docker build ._=> build command is what will take a docker file and generate an image out of it. The _dot_=> is refered to as the _build context_=> it is the set of files and folders that belongs to our project.., files and folders we want to wrap in our container.
 - After successful build of file, we can use _docker run <id-of-container>_
 
+- **NOTE**: _During the build process, a temporary container is created after the starting of every command, and is renoved after the command is completed_
+
 # Tagging an Image / Making it easier to run
 
 - _docker build -t your-docker-id/repoOrProject-name:version(tag) ._
   - eg: _docker build -t dojgambia/redis:latest ._
 - To run we can just say: _docker run dojgambia/redis_
+
+# Creating a simple Web App in Docker
+
+- We can use express to create a simple web app
+- We can use the Node Image from the docker hub
+- Note that **None of the files in the directory that you have your docker file in in contained in your container by default unless you specify it in the Dockerfile**., to do so we use the _COPY_ insttruction or command
+- **COPY** => is used to move files and folders from the file system of our local machine to the file system of the _temporary container_ that is created during the build process. Example:
+
+```dockerfile
+COPY ./ ./
+#copy everything from our current build context to container
+```
