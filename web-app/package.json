@@ -1,0 +1,21 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "description": "Node Js Web App to test docker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Docker",
+    "Docker",
+    "node",
+    "Js",
+    "Express"
+  ],
+  "author": "DOJ - Daddy Omar Jeng",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
