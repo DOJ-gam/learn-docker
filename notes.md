@@ -139,7 +139,7 @@ CMD ["redis-server"]
 
 ```
 
-- From the ablove code, we can say that the _FTOM, RUN and CMD_ are instructions and their corresponding commands are called _instructions_
+- From the ablove code, we can say that the _FROM, RUN and CMD_ are instructions and their corresponding commands are called _instructions_
 - To run it we navigate to the directory where we have the _Dockerfile_ and run _docker build ._=> build command is what will take a docker file and generate an image out of it. The _dot_=> is refered to as the _build context_=> it is the set of files and folders that belongs to our project.., files and folders we want to wrap in our container.
 - After successful build of file, we can use _docker run <id-of-container>_
 
@@ -162,3 +162,9 @@ CMD ["redis-server"]
 COPY ./ ./
 #copy everything from our current build context to container
 ```
+
+# Accessing Docker Container Port from Main Machine
+
+- Inorder to access port numbers from docker containe, you need to setup explicit port mapping
+- **Port Mapping** => says anytime that someone makes a request to a giveb port on your local network, take that request and authomatically fpward it to that container.
+- _Note_=> this only applys to incomming requests to the container, but by default the outgoing requests can make request to the outside world
